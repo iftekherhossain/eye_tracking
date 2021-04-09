@@ -5,8 +5,8 @@ import numpy as np
 cap = cv2.VideoCapture(0)
 port = serial.Serial("/dev/rfcomm2", baudrate=9600)
 t=20
-second_val=1000
-third_val = 6000
+second_val=1200
+third_val = 4000
 while True:
     ret,frame=cap.read()
     cv2.imshow("frame",frame)

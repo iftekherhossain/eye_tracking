@@ -44,9 +44,9 @@ while True:
                 cY = 300
             print(cX)
             if cX >x +int(w/2)-10 and cX<x+int(w/2)+10 :
-                port.write(b'3')
+                #port.write(b'3')
             elif cX>x+int(w/2)+10:
-                port.write(b'1')
+                #port.write(b'1')
                 # rcv = port.readline()
                 # if rcv:
                 #     print(rcv)

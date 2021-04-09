@@ -4,7 +4,7 @@ import serial
 import time
 
 cap = cv2.VideoCapture(0)
-port = serial.Serial("/dev/rfcomm0", baudrate=9600)
+#port = serial.Serial("/dev/rfcomm0", baudrate=9600)
 
 while True:
     ret, frame = cap.read()
@@ -15,7 +15,7 @@ while True:
     gray_roi = cv2.cvtColor(roi, cv2.COLOR_BGR2GRAY)
     gray_roi = cv2.GaussianBlur(gray_roi, (7, 7), 0)
     cv2.line(roi, (630, 0), (630, rows), (0, 255, 0), 2)
-    _, threshold = cv2.threshold(gray_roi, 40, 255, cv2.THRESH_BINARY_INV)
+    _, threshold = cv2.threshold(gray_roi, 30, 255, cv2.THRESH_BINARY_INV)
     contours,_ = cv2.findContours(threshold, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
     contours = sorted(contours, key=lambda x: cv2.contourArea(x), reverse=True)
 
@@ -30,12 +30,14 @@ while True:
         cX = int(M["m10"] / M["m00"])
         cY = int(M["m01"] / M["m00"])
         if cX>630:
-            port.write(b'1')
+            #port.write(b'1')
+            pass
             # rcv = port.readline()
             # if rcv:
             #     print(rcv)
         else:
-            port.write(b'2')
+            #port.write(b'2')
+            pass
             # rcv = port.readline()
             # if rcv:
             #     print(rcv)
