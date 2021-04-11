@@ -24,7 +24,7 @@ while True:
     non_zero = cv2.countNonZero(threshold)
     print(non_zero)
     cv2.imshow("Thresh",threshold)
-    if non_zero>0 and non_zero<second_val:
+    if non_zero>=0 and non_zero<second_val:
         print("Right")
     elif non_zero>second_val and non_zero<third_val:
         print("Forward")
